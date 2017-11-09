@@ -18,6 +18,7 @@ import android.widget.TextView;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity {
+
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
@@ -29,19 +30,18 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView, mEmailView;
     private View mProgressView;
     private View mLoginFormView, mLogoImage;
-    private TextView mTvRegister;
-    private Button mEmailSignInButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        TextView mTvRegister = (TextView) findViewById(R.id.registration);
+        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
         mPasswordView = (EditText) findViewById(R.id.password);
-        mTvRegister = (TextView) findViewById(R.id.registration);
-        mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mLoginFormView = findViewById(R.id.login_form);
         mLogoImage = findViewById(R.id.LogoImage);
         mProgressView = findViewById(R.id.login_progress);
@@ -146,8 +146,7 @@ public class LoginActivity extends AppCompatActivity {
         mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
 
         //TODO: Inset animation for logo while logo is getting smaller in size
-        mLogoImage.getLayoutParams().height = 400;
-        mLogoImage.getLayoutParams().width = 600;
+
     }
 
     /**
